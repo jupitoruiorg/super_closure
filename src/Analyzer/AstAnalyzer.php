@@ -140,7 +140,7 @@ class AstAnalyzer extends ClosureAnalyzer
     private function getParser()
     {
         if (class_exists('PhpParser\ParserFactory')) {
-            return (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+            return (new ParserFactory)->createForNewestSupportedVersion();
         }
 
         return new CodeParser(new EmulativeLexer);
